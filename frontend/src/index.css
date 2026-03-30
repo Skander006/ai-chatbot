@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #dfdfdf;
+}
+.container{
+    @apply flex justify-center items-center p-16;
+}
+.card{
+    @apply flex flex-col justify-center items-center gap-20 p-20 rounded-lg shadow-lg overflow-hidden;
+}
+.title{
+    @apply text-4xl font-semibold bg-gradient-to-r from-gray-800 to-gray-500 bg-clip-text text-transparent;
+}
+.form{
+    @apply flex flex-col justify-center items-center gap-12;
+}
+.input{
+    @apply p-4 rounded-lg shadow-md outline-none focus:border-1 border-gray-500;
+}
+.button{
+    @apply px-8 py-4 rounded-lg shadow-md bg-gray-300 text-gray-800 font-medium hover:scale-104 transition-all duration-400 cursor-pointer;
+}
+.link{
+    @apply text-gray-600;
+}
+.action{
+    @apply text-blue-700 underline cursor-pointer hover:opacity-85 transition-all duration-300;
+}

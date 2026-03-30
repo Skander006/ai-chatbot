@@ -1,0 +1,30 @@
+### Health check
+GET http://localhost:2525/health
+
+### Register
+POST http://localhost:2525/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "skander@test.com",
+  "password": "123456"
+}
+
+### Login
+POST http://localhost:2525/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "skander@test.com",
+  "password": "123456"
+}
+
+### Chat
+POST http://localhost:2525/api/chat
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YzkyZjcwNDkxYjBiN2Y2Yjg2ZGY3ZSIsImVtYWlsIjoic2thbmRlckB0ZXN0LmNvbSIsImlhdCI6MTc3NDc5MjU3NCwiZXhwIjoxNzc1Mzk3Mzc0fQ.s7wrQl95EOFcnVY6ppK-QIjTBuJxy2WFjT6lpRQmvJQ
+
+{
+  "messages": [{"role": "user", "content": "Bonjour, qui es-tu ?"}],
+  "model": "llama-3.3-70b-versatile"
+}
