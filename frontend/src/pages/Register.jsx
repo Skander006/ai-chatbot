@@ -14,12 +14,12 @@ export default function Register(){
         e.preventDefault();
         setError("");
         try{
-            const res = await api.post("auth/register", {email, password});
+            const res = await api.post("/auth/register", {email, password});
             login(res.data.token, res.data.user);
             navigate("/");
         }
         catch(err){
-            setError(res?.response?.data?.error || "Erreur lors de l'inscription");
+            setError(err?.response?.data?.error || "Erreur lors de l'inscription");
         }
     }
 
@@ -34,7 +34,7 @@ export default function Register(){
                         className="input"
                         placeholder="Email"
                         value={email}
-                        onChange={(e)=>setEmail.target.value}
+                        onChange={(e)=>setEmail(e.target.value)}
                         required
                         />
                     <input
@@ -42,10 +42,10 @@ export default function Register(){
                         className="input"
                         placeholder="Password"
                         value={password}
-                        onChange={(e)=>setPassword.target.value}
+                        onChange={(e)=>setPassword(e.target.value)}
                         required
                         />
-                    <button type="submit" className="button">S'inscrire</button>
+                    <button type={"submit"} className="button">S'inscrire</button>
                     <p className="link">
                         Déjà un compte? <span className="action"><Link to="/login">Se connecter</Link></span>
                     </p>

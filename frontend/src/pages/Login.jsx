@@ -14,11 +14,13 @@ export default function Login(){
         e.preventDefault();
         setError("");
         try{
-            const res = api.post("/auth/login", {email, password});
+            const res = await api.post("/auth/login", {email, password});
+            console.log(res);
             login(res.data.token, res.data.user);
             navigate('/');
         } catch(err){
-            setError(res?.response?.data?.error || 'Erreur de connexion');
+            setError(err?.response?.data?.error || 'Erreur de connexion');
+            console.log(err.message);
         }
     }
 
