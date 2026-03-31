@@ -48,19 +48,19 @@ export default function Chat() {
             <Navbar model={model} setModel={setModel} />
             <ChatWindow messages={messages} loading={loading} />
             <div className="input-area">
-        <textarea
-            className="textarea"
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Écris ton message... (Entrée pour envoyer)"
-            rows={2}
-        />
+                <textarea
+                    className="textarea"
+                    value={input}
+                    onChange={e => setInput(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Écris ton message..."
+                    rows={2}
+                />
                 <button
                     className="send-btn"
-                    style={{opacity: loading ? 0.6 : 1 }}
-                    onClick={sendMessage}
-                    disabled={loading}
+                    style={{opacity: (loading || !input) ? 0.6 : 1 }}
+                    onClick={async()=>sendMessage()}
+                    disabled={loading || !input}
                 >
                     Envoyer
                 </button>

@@ -9,13 +9,9 @@ export default function MessageBubble({ message }) {
                 {isUser ? 'U' : 'AI'}
             </div>
 
-            <div className={`max-w-[70%] px-4 py-3 rounded-2xl shadow-sm text-base leading-relaxed
-                ${isUser
-                ? 'bg-indigo-500 text-white rounded-br-sm'
-                : 'bg-white text-gray-800 border border-gray-100 rounded-bl-sm'
-            }`}>
+            <div className={`max-w-[70%] rounded-2xl shadow-sm p-4 leading-relaxed ${isUser ? 'bg-indigo-500 text-white rounded-br-sm' : 'bg-white text-gray-800 border border-gray-100 rounded-bl-sm'}`}>
                 {isUser ? (
-                    <p className="m-0">{message.content}</p>
+                    <p>{message.content}</p>
                 ) : (
                     <ReactMarkdown>{message.content}</ReactMarkdown>
                 )}

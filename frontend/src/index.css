@@ -54,7 +54,7 @@ body{
     @apply px-6 py-3 bg-gray-400 text-black rounded-lg shadow-md cursor-pointer hover:bg-gray-300 transition-all duration-300;
 }
 .chat-window{
-    @apply flex flex-col justify-center items-center px-90 py-45 rounded-lg shadow-lg;
+    @apply flex flex-col gap-8 px-20 py-10 rounded-lg shadow-lg;
     animation: windowUp 1.4s ease-in;
 }
 .empty-message{
@@ -76,7 +76,18 @@ body{
 .dot:nth-child(2) { animation-delay: 0.2s; }
 .dot:nth-child(3) { animation-delay: 0.4s; }
 
-
+.container-chat{
+    @apply flex flex-col gap-20;
+}
+.input-area{
+    @apply flex justify-center items-center gap-5 mb-4;
+}
+.textarea{
+    @apply w-[40%] resize-none overflow-hidden p-2 rounded-lg outline-none shadow-md border-1 border-gray-600 focus:border-gray-800 focus:shadow-lg transition-all duration-300;
+}
+.send-btn{
+    @apply px-8 py-5 cursor-pointer bg-orange-600 text-lg text-white rounded-3xl shadow-lg hover:bg-orange-700 transition-all duration-300;
+}
 @keyframes windowUp{
     from{
         transform: translateY(60px);
