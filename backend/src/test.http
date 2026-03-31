@@ -28,3 +28,35 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YzkyZjcwN
   "messages": [{"role": "user", "content": "Bonjour, qui es-tu ?"}],
   "model": "llama-3.3-70b-versatile"
 }
+
+### Créer une conversation
+POST http://localhost:2525/api/conversations
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YzkyZjcwNDkxYjBiN2Y2Yjg2ZGY3ZSIsImVtYWlsIjoic2thbmRlckB0ZXN0LmNvbSIsImlhdCI6MTc3NDc5MjU3NCwiZXhwIjoxNzc1Mzk3Mzc0fQ.s7wrQl95EOFcnVY6ppK-QIjTBuJxy2WFjT6lpRQmvJQ
+
+{
+  "model": "llama-3.3-70b-versatile"
+}
+
+### Récupérer toutes les conversations
+GET http://localhost:2525/api/conversations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YzkyZjcwNDkxYjBiN2Y2Yjg2ZGY3ZSIsImVtYWlsIjoic2thbmRlckB0ZXN0LmNvbSIsImlhdCI6MTc3NDc5MjU3NCwiZXhwIjoxNzc1Mzk3Mzc0fQ.s7wrQl95EOFcnVY6ppK-QIjTBuJxy2WFjT6lpRQmvJQ
+
+### Récupérer une conversation precise
+GET http://localhost:2525/api/conversations/69cc3117257282824657e5e8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YzkyZjcwNDkxYjBiN2Y2Yjg2ZGY3ZSIsImVtYWlsIjoic2thbmRlckB0ZXN0LmNvbSIsImlhdCI6MTc3NDc5MjU3NCwiZXhwIjoxNzc1Mzk3Mzc0fQ.s7wrQl95EOFcnVY6ppK-QIjTBuJxy2WFjT6lpRQmvJQ
+
+### Supprimer une conversation
+DELETE http://localhost:2525/api/conversations/69cc314c257282824657e5ee
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YzkyZjcwNDkxYjBiN2Y2Yjg2ZGY3ZSIsImVtYWlsIjoic2thbmRlckB0ZXN0LmNvbSIsImlhdCI6MTc3NDc5MjU3NCwiZXhwIjoxNzc1Mzk3Mzc0fQ.s7wrQl95EOFcnVY6ppK-QIjTBuJxy2WFjT6lpRQmvJQ
+
+### Mise à jour d'une conversation
+PUT http://localhost:2525/api/conversations/69cc3117257282824657e5e8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YzkyZjcwNDkxYjBiN2Y2Yjg2ZGY3ZSIsImVtYWlsIjoic2thbmRlckB0ZXN0LmNvbSIsImlhdCI6MTc3NDc5MjU3NCwiZXhwIjoxNzc1Mzk3Mzc0fQ.s7wrQl95EOFcnVY6ppK-QIjTBuJxy2WFjT6lpRQmvJQ
+
+{
+    "messages": [{"role": "user", "content": "Bonjour, qui es-tu ?"}],
+    "title": "Conversation normale"
+}
+
