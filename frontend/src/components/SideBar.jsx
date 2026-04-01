@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from '../api/axios.js';
 
-export default function SideBar({ currentId, onSelect, onNew, onDelete }) {
+export default function SideBar({ currentId, onSelect, onNew, onDelete, model }) {
     const [conversations, setConversations] = useState([]);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function SideBar({ currentId, onSelect, onNew, onDelete }) {
 
     const handleNew = async () => {
         try {
-            const res = await api.post('/conversations');
+            const res = await api.post('/conversations',{'model' : model});
             setConversations([res.data, ...conversations]);
             onNew(res.data);
         } catch (err) {
@@ -39,11 +39,11 @@ export default function SideBar({ currentId, onSelect, onNew, onDelete }) {
     };
 
     return (
-        <div className="flex flex-col w-64 h-full bg-gray-900 text-white shrink-0">
-            <div className="p-4 border-b border-gray-700">
+        <div className="flex flex-2 min-h-screen flex-col gap-4 rounded-2xl shadow-xl text-white text-center">
+            <div className="flex p-4 border-b border-gray-700">
                 <button
                     onClick={handleNew}
-                    className="w-full py-2 px-4 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-sm font-semibold transition-colors"
+                    className="w-full py-4 px-8 bg-indigo-500 hover:bg-indigo-600 cursor-pointer rounded-lg text-lg font-semibold transition-colors duration-250"
                 >
                     + Nouvelle conversation
                 </button>
@@ -51,18 +51,20 @@ export default function SideBar({ currentId, onSelect, onNew, onDelete }) {
 
             <div className="flex-1 overflow-y-auto p-2 flex flex-col gap-1">
                 {conversations.length === 0 && (
-                    <p className="text-gray-500 text-sm text-center mt-4">
-                        Aucune conversation
-                    </p>
+                    <div className="flex justify-center items-center">
+                        <p className="text-gray-500 text-center mt-4">
+                            Aucune conversation
+                        </p>
+                    </div>
                 )}
                 {conversations.map(conv => (
                     <div
                         key={conv._id}
                         onClick={() => onSelect(conv._id)}
-                        className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer text-sm transition-colors group
+                        className={`rounded-lg cursor-pointer border-b border-b-gray-300 shadow-lg transition-all duration-200
                             ${currentId === conv._id
                             ? 'bg-indigo-600 text-white'
-                            : 'text-gray-300 hover:bg-gray-800'
+                            : 'text-gray-800 hover:bg-indigo-400'
                         }`}
                     >
                         <span className="truncate flex-1">{conv.title}</span>

@@ -31,6 +31,7 @@ router.get('/:id', protect, async(req,res)=>{
 
 
 router.post('/', protect, async(req,res)=>{
+    console.log("req.user : ", req.user);
     try{
         const conversation = await Conversation.create({
             userId : req.user.id,
